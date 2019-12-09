@@ -1,0 +1,7 @@
+function trade_vol_t_05(show_here){
+
+    $("#"+show_here).append(
+        '<iframe src="./js_sankey/default_sankeys/trade_vol_BoW_norm_small_100topics_THRESHOLD=0.05.html"' 
+        +'height="800" width="1200"></iframe>');
+    
+}
