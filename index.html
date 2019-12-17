@@ -27,6 +27,13 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.css">
+
+  <!-- <style>
+     #node_list_checkbox > lable {
+      font-weight: 100;
+    }
+  </style> -->
+  
 </head>
 <body class="sidebar-mini layout-fixed sidebar-collapse">
 <div class="wrapper">
@@ -192,6 +199,24 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Sankey new
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">9</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="javascript:Menu_click('newSankey_trade_vol_t=0.2');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Trade_vol T=0.2</p>
+                </a>
+              </li>
+              </ul>
+          </li>
           <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle text-info"></i>
@@ -222,7 +247,40 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- Main row -->
+
+          <div class="row" id="node_filter_main" style="display: none;">
+              <section class="col-lg-8 ">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Nodes based on edge count</h3>
+                      </div>
+                  <div class="card-body">
+                    <div class="tab-content p-0">
+                     
+                     <div id='node_filter' style="max-width: 1200px;"></div>
+
+                     <label style="font-weight: 100;"> Selected Nodes :</label>
+                     <p id='selected_node_list'></p>
+                      
+                    </div>
+                  </div><!-- /.card-body -->
+                </div>
+                
+              </section>
+              <section class="col-lg-2 " >
+                  <div class="card card-warning">
+                      <div class="card-header">
+                        <h3 class="card-title">Source node selection</h3>
+                      </div>
+                      <div class="card-body" >
+                          <div class="form-group" id="node_list_checkbox" style="max-height: 350px; overflow-y:scroll;">
+                          </div>
+                      </div>
+                  </div>
+              </section>
+             
+            </div>
+        
         <div class="row">
           <section class="col-lg-12 ">
             <!-- Custom tabs (Charts with tabs)-->
@@ -281,7 +339,8 @@
 
 <!-- d3 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/sankey.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/sankey.js"></script>
+<script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
 
 <script src="js_pyldviz/trade_vol_BoW_norm_large_50topics.js"></script>
 <script src="js_pyldviz/trade_vol_BoW_norm_large_100topics.js"></script>
@@ -302,7 +361,10 @@
 <script src="js_sankey/dc_v4_t_2.js"></script>
 <script src="js_sankey/dc_v4_t_1.js"></script>
 <script src="js_sankey/dc_v4_t_05.js"></script>
-<!-- <script src="js_sankey/sankey.js"></script> -->
+
+<script src="js_sankey/newSankey_trade_vol.js"></script>
+
+<script src="js/node_grid.js"></script>
 
 <script>
 
@@ -310,6 +372,7 @@
 
     //remove exists visualization 
     d3.selectAll('#show_here').selectAll('*').remove();
+    $('#node_filter_main').hide();
 
     switch(para) {
     case "trade_vol_Tp50":
@@ -357,14 +420,18 @@
     case "frac_out_t=0.05":  
       frac_out_t_05('show_here','frac_out_t=0.05');
       break;
-    case "dc_v4_t=0.2":  ///pending
+    case "dc_v4_t=0.2":  
       dc_v4_t_2('show_here','dc_v4_t=0.2');
       break;
-    case "dc_v4_t=0.1":  ///pending
+    case "dc_v4_t=0.1":  
     dc_v4_t_1('show_here','dc_v4_t=0.1');
       break;
-    case "dc_v4_t=0.05":  ///pending
+    case "dc_v4_t=0.05":  
     dc_v4_t_05('show_here','dc_v4_t=0.05');
+      break;
+    case "newSankey_trade_vol_t=0.2":  
+      newSankey_trade_vol()
+      //sankey_init('show_here','trade_vol_t=0.2','data/trade_vol_BoW_norm_small_100topics_t=all.json',0.2);
       break;
     default:
       text = "Thanks";
