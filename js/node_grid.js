@@ -1,10 +1,7 @@
 function node_grid(data){
     $('#node_filter_main').show();
     $('#show_here').hide();
-
     $('#show_sankey').show();
-
-    // data.nodes.sort( compare );
 
     function edge_counter(source_name){
         return data.links.filter(function(d){
@@ -21,7 +18,11 @@ function node_grid(data){
         }
       }, []);
 
-      var nodes_stat = node_temp.sort( compare ).map(function(d,i){
+    var nodes_stat_tmp = node_temp.sort( compare ).filter(function(d){
+        if(edge_counter(d.node)>0) return d
+    })
+
+    var nodes_stat = nodes_stat_tmp.map(function(d,i){
         return ({
             'node' : d.node,
             'name' : d.name,
@@ -30,16 +31,13 @@ function node_grid(data){
         })
     })
 
-
-
     var selected_nodes = []
     
     nodes_stat.forEach(d => {
         $('#node_list_checkbox').append( '<div class="checkbox"><label><input type="checkbox" id="ch_'+d.name+'"> node '+d.name+'</label></div>' )
     });
 
-    console.log(nodes_stat)
-
+ 
     //sorting 
     function compare( a, b ) {
         if ( a.name < b.name ){
@@ -53,6 +51,7 @@ function node_grid(data){
     
     const node_width = 30,
           node_column = 35
+          svg_height = (nodes_stat.length/node_column) *(node_width+5)
 
     var color = d3.scaleLinear()
                 .domain(d3.extent(nodes_stat.map(d => d.edge_count)))
@@ -64,7 +63,7 @@ function node_grid(data){
     var grid = d3.select("#node_filter")
         .append("svg")
         .attr("width","1300px")
-        .attr("height","200px");
+        .attr("height",svg_height+"px");
 
     var node_g = grid.selectAll('g')
                         .data(nodes_stat)
@@ -73,7 +72,7 @@ function node_grid(data){
                         .attr("transform",d => "translate("+(d.index%node_column)*node_width+","+ Math.trunc(d.index/node_column)*node_width+")")
                         
 
-    console.log(nodes_stat)
+
     var node_rect = node_g.append('rect')
                         .attrs({
                             height :node_width,
@@ -148,12 +147,18 @@ function data_preparation(data, selected_nodes){
         })
     })
     new_links = links.map(function(d){
+        var source_me = new_nodes.filter(function(e){ if(d.source == e.pre_node){ return e}})
+        var target_me = new_nodes.filter(function(e){ if(d.target == e.pre_node){ return e}})
         return ({
-            'source' : new_nodes.filter(function(e){ if(d.source == e.pre_node){ return e}})[0].node,
-            'target' : new_nodes.filter(function(e){ if(d.target == e.pre_node){ return e}})[0].node,
+            'source' :(source_me.length>0)? source_me[0].node :-1,
+            'target' :(target_me.length>0)? target_me[0].node :-1,
             'value'  : d.value
         })
     })
+    new_links = new_links.filter(function(d){
+        if(d.source != -1 & d.target != -1) return d
+    })
+    console.log(new_links)
 
 
 

@@ -226,7 +226,43 @@
                       <i class="far fa-circle nav-icon"></i>
                       <p>Trade_vol T=0.05</p>
                     </a>
-                  </li>
+                </li>
+                <li class="nav-item">
+                  <a href="javascript:Menu_click('newSankey_frac_out_t=0.2');" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Frac_Out T=0.2</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="javascript:Menu_click('newSankey_frac_out_t=0.1');" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Frac_Out T=0.1</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="javascript:Menu_click('newSankey_frac_out_t=0.05');" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Frac_Out T=0.05</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="javascript:Menu_click('newSankey_dc_v4_t=0.2');" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dc_v4 T=0.2</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="javascript:Menu_click('newSankey_dc_v4_t=0.1');" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dc_v4 T=0.1</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="javascript:Menu_click('newSankey_dc_v4_t=0.05');" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dc_v4 T=0.05</p>
+                  </a>
+                </li>
               </ul>
           </li>
           <!-- <li class="nav-item">
@@ -264,7 +300,7 @@
               <section class="col-lg-12 ">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Nodes based on edge count</h3>
+                        <h3 class="card-title">Nodes based on edge count ( cell name: node name, cell color: edge count)</h3>
                       </div>
                   <div class="card-body">
                     <div class="tab-content p-0">
@@ -376,9 +412,13 @@
 <script src="js_sankey/dc_v4_t_1.js"></script>
 <script src="js_sankey/dc_v4_t_05.js"></script>
 
-<script src="js_sankey/newSankey_trade_vol.js"></script>
+<script src="js_sankey/newSankey_trade_vol_all.js"></script>
 
 <script src="js/node_grid.js"></script>
+<!-- data scripts -->
+<script src="data/min_data/trade_vol_BoW_norm_small_100topics_t=all.min.js"></script>
+<script src="data/min_data/Dc_v4_100topics_t=all.min.js"></script>
+<script src="data/min_data/trade_SV_BoW_small_100topics_t=all.min.js"></script>
 
 <script>
 
@@ -446,14 +486,31 @@
     dc_v4_t_05('show_here','dc_v4_t=0.05');
       break;
     case "newSankey_trade_vol_t=0.2":  
-      newSankey_trade_vol('show_here','trade_vol_BoW_norm_small_100topics_t=0.2',0.2)
-      //sankey_init('show_here','trade_vol_t=0.2','data/trade_vol_BoW_norm_small_100topics_t=all.json',0.2);
+      newSankey_trade_vol('show_here','trade_vol_BoW_norm_small_100topics_t=0.2',0.2,data_tr_vol)
       break;
     case "newSankey_trade_vol_t=0.1":  
-      newSankey_trade_vol('show_here','trade_vol_BoW_norm_small_100topics_t=0.1',0.1)
+      newSankey_trade_vol('show_here','trade_vol_BoW_norm_small_100topics_t=0.1',0.1,data_tr_vol)
       break;
     case "newSankey_trade_vol_t=0.05":  
-      newSankey_trade_vol('show_here','trade_vol_BoW_norm_small_100topics_t=0.05',0.05)
+      newSankey_trade_vol('show_here','trade_vol_BoW_norm_small_100topics_t=0.05',0.05,data_tr_vol)
+      break;
+    case "newSankey_frac_out_t=0.2":  
+      newSankey_trade_vol('show_here','trade_SV_BoW_small_100topics_t=0.2',0.2,data_tr_sv)
+      break;
+    case "newSankey_frac_out_t=0.1":  
+      newSankey_trade_vol('show_here','trade_SV_BoW_small_100topics_t=0.1',0.1,data_tr_sv)
+      break;
+    case "newSankey_frac_out_t=0.05":  
+      newSankey_trade_vol('show_here','trade_SV_BoW_small_100topics_t=0.05',0.05,data_tr_sv)
+      break;
+    case "newSankey_dc_v4_t=0.2":  
+      newSankey_trade_vol('show_here','Dc_v4_100topics_t=0.2',0.2,data_dc)
+      break;
+    case "newSankey_dc_v4_t=0.1":  
+      newSankey_trade_vol('show_here','Dc_v4_100topics_t=0.1',0.1,data_dc)
+      break;
+    case "newSankey_dc_v4_t=0.05":  
+      newSankey_trade_vol('show_here','Dc_v4_100topics_t=0.05',0.05,data_dc)
       break;
     default:
       text = "Thanks";
