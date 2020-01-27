@@ -27,7 +27,8 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link id="pyldvis_css" rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.css">
-
+  <!-- d3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js"></script>
  <style>
  path { 
    stroke: black !important; 
@@ -71,69 +72,117 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                pyLDAvis
+                Count
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">9</span>
+                <span class="badge badge-info right">4</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="javascript:Menu_click('trade_vol_Tp50');" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>trade_vol 50topics</p>
+                  <p>pyLDAvis topic50</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="javascript:Menu_click('trade_vol_Tp100');" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>trade_vol 100topics</p>
-                  </a>
+                <a href="javascript:Menu_click('trade_vol_Tp100');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pyLDAvis topic100</p>
+                </a>
               </li>
               <li class="nav-item">
-                  <a href="javascript:Menu_click('trade_vol_Tp200');" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>trade_vol 200topics</p>
-                  </a>
+                <a href="javascript:Menu_click('trade_vol_Tp200');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pyLDAvis topic200</p>
+                </a>
               </li>
               <li class="nav-item">
-                  <a href="javascript:Menu_click('frac_out_50topics');" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>frac_out 50topics</p>
-                  </a>
+                <a href="javascript:Menu_click('trade_vol_Tp300');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pyLDAvis topic300</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="javascript:Menu_click('sankey_count_tc_100_t05');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sankey Topic100 T=0.05</p>
+                </a>
               </li>
               <li class="nav-item">
-                  <a href="javascript:Menu_click('frac_out_100topics');" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>frac_out 100topics</p>
-                  </a>
+                <a href="javascript:Menu_click('sankey_count_tc_100_t1');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sankey Topic100 T=0.1</p>
+                </a>
               </li>
               <li class="nav-item">
-                  <a href="javascript:Menu_click('frac_out_200topics');" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>frac_out 200topics</p>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="javascript:Menu_click('dc_v4_50topics');" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>dc_v4 50topics</p>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="javascript:Menu_click('dc_v4_100topics');" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>dc_v4 100topics</p>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="javascript:Menu_click('dc_v4_200topics');" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>dc_v4 200topics</p>
-                  </a>
-              </li>
+                <a href="javascript:Menu_click('sankey_count_tc_100_t2');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sankey Topic100 T=0.2</p>
+                </a>
+              </li> -->
+
+
+              
+           
             </ul>
           </li>
+
           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Fraction
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">4</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="javascript:Menu_click('trade_frac_Tp50');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pyLDAvis topic50</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:Menu_click('trade_frac_Tp100');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pyLDAvis topic100</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:Menu_click('trade_frac_Tp200');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pyLDAvis topic200</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:Menu_click('trade_frac_Tp300');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pyLDAvis topic300</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a href="javascript:Menu_click('sankey_frac_tc_100_cnt_t05');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sankey Topic100 T=0.05</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:Menu_click('sankey_frac_tc_100_cnt_t1');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sankey Topic100 T=0.1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:Menu_click('sankey_frac_tc_100_cnt_t2');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sankey Topic100 T=0.2</p>
+                </a>
+              </li> -->
+           
+            </ul>
+          </li>
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -264,7 +313,7 @@
                   </a>
                 </li>
               </ul>
-          </li>
+          </li> -->
           <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle text-info"></i>
@@ -315,17 +364,7 @@
                 </div>
                 
               </section>
-              <!-- <section class="col-lg-2 " >
-                  <div class="card card-warning">
-                      <div class="card-header">
-                        <h3 class="card-title">Source node selection</h3>
-                      </div>
-                      <div class="card-body" >
-                          <div class="form-group" id="node_list_checkbox" style="max-height: 350px; overflow-y:scroll;">
-                          </div>
-                      </div>
-                  </div>
-              </section> -->
+            
              
             </div>
         
@@ -358,7 +397,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.0.0 : By Tharindu Peiris
+      <b>Version</b> 1.1.0 
     </div>
   </footer>
 
@@ -378,31 +417,46 @@
 <!-- ChartJS -->
 
 
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- <script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script> -->
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script> -->
 
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 
-<!-- d3 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js"></script>
+
+
 <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/sankey.js"></script>
 <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
 <script src="https://unpkg.com/d3-sankey@0"></script>
 
-<script src="js_pyldviz/trade_vol_BoW_norm_large_50topics.js"></script>
-<script src="js_pyldviz/trade_vol_BoW_norm_large_100topics.js"></script>
-<script src="js_pyldviz/trade_vol_BoW_norm_large_200topics.js"></script>
-<script src="js_pyldviz/frac_out_50topics.js"></script>
-<script src="js_pyldviz/frac_out_100topics.js"></script>
-<script src="js_pyldviz/frac_out_200topics.js"></script>
-<script src="js_pyldviz/dc_v4_50topics.js"></script>
-<script src="js_pyldviz/dc_v4_100topics.js"></script>
-<script src="js_pyldviz/dc_v4_200topics.js"></script>
+<!-- experiment data loading pyLDAvis-->
+<script src="experiment_data/Count/trade_count_50topics.js"></script>
+<script src="experiment_data/Count/trade_count_100topics.js"></script>
+<script src="experiment_data/Count/trade_count_200topics.js"></script>
+<script src="experiment_data/Count/trade_count_300topics.js"></script>
 
-<script src="js_sankey/trade_vol_t_2.js"></script>
+<script src="experiment_data/Fraction/trade_frac_out_50topics.js"></script>
+<script src="experiment_data/Fraction/trade_frac_out_100topics.js"></script>
+<script src="experiment_data/Fraction/trade_frac_out_200topics.js"></script>
+<script src="experiment_data/Fraction/trade_frac_out_300topics.js"></script>
+
+<!--Sankey design-->
+<script src="js/sankey/sankey_design.js"></script>
+
+<script src="experiment_data/Fraction/sankey_frac_tc_100_cnt_t05.js"></script>
+<script src="experiment_data/Fraction/sankey_frac_tc_100_cnt_t1.js"></script>
+<script src="experiment_data/Fraction/sankey_frac_tc_100_cnt_t2.js"></script>
+
+<script src="experiment_data/Count/sankey_count_tc_100_cnt_t05.js"></script>
+<script src="experiment_data/Count/sankey_count_tc_100_cnt_t1.js"></script>
+<script src="experiment_data/Count/sankey_count_tc_100_cnt_t2.js"></script>
+
+
+
+
+<!-- <script src="js_sankey/trade_vol_t_2.js"></script>
 <script src="js_sankey/trade_vol_t_1.js"></script>
 <script src="js_sankey/trade_vol_t_05.js"></script>
 <script src="js_sankey/frac_out_t_2.js"></script>
@@ -410,15 +464,15 @@
 <script src="js_sankey/frac_out_t_05.js"></script>
 <script src="js_sankey/dc_v4_t_2.js"></script>
 <script src="js_sankey/dc_v4_t_1.js"></script>
-<script src="js_sankey/dc_v4_t_05.js"></script>
+<script src="js_sankey/dc_v4_t_05.js"></script> -->
+<!-- 
+<script src="js_sankey/newSankey_trade_vol_all.js"></script> -->
 
-<script src="js_sankey/newSankey_trade_vol_all.js"></script>
-
-<script src="js/node_grid.js"></script>
+<!-- <script src="js/node_grid.js"></script> -->
 <!-- data scripts -->
-<script src="data/min_data/trade_vol_BoW_norm_small_100topics_t=all.min.js"></script>
+<!-- <script src="data/min_data/trade_vol_BoW_norm_small_100topics_t=all.min.js"></script>
 <script src="data/min_data/Dc_v4_100topics_t=all.min.js"></script>
-<script src="data/min_data/trade_SV_BoW_small_100topics_t=all.min.js"></script>
+<script src="data/min_data/trade_SV_BoW_small_100topics_t=all.min.js"></script> -->
 
 <script>
 
@@ -432,86 +486,58 @@
 
     switch(para) {
     case "trade_vol_Tp50":
-      trade_vol_BoW_norm_large_50topics('show_here','trade_vol_BoW_norm_large_50topics');
+      cnt_pyldvis_tc50('show_here','Count : pyLDAVis topic 50');
       break;
     case "trade_vol_Tp100":
-      trade_vol_BoW_norm_large_100topics('show_here','trade_vol_BoW_norm_large_100topics');
+      cnt_pyldvis_tc100('show_here','Count : pyLDAVis topic 100');
       break;
     case "trade_vol_Tp200":
-      trade_vol_BoW_norm_large_200topics('show_here','trade_vol_BoW_norm_large_200topics');
+      cnt_pyldvis_tc200('show_here','Count : pyLDAVis topic 200');
       break;
-    case "frac_out_50topics":
-      frac_out_50topics('show_here','frac_out_50topics');
+    case "trade_vol_Tp300":
+      cnt_pyldvis_tc300('show_here','Count : pyLDAVis topic 300');
       break;
-    case "frac_out_100topics":
-      frac_out_100topics('show_here','frac_out_100topics');
+
+    case "trade_frac_Tp50":
+      cnt_pyldvis_tc50('show_here','Fraction : pyLDAVis topic 50');
       break;
-    case "frac_out_200topics":
-      frac_out_200topics('show_here','frac_out_200topics');
+    case "trade_frac_Tp100":
+      cnt_pyldvis_tc100('show_here','Fraction : pyLDAVis topic 100');
       break;
-    case "dc_v4_50topics":
-      dc_v4_50topics('show_here','dc_v4_50topics');
+    case "trade_frac_Tp200":
+      cnt_pyldvis_tc200('show_here','Fraction : pyLDAVis topic 200');
       break;
-    case "dc_v4_100topics":
-      dc_v4_100topics('show_here','dc_v4_100topics');
+    case "trade_frac_Tp300":
+      cnt_pyldvis_tc300('show_here','Fraction : pyLDAVis topic 300');
       break;
-    case "dc_v4_200topics":
-      dc_v4_200topics('show_here','dc_v4_200topics');
+
+    case "sankey_frac_tc_100_cnt_t05":
+      draw_sankey('show_sankey', sankey_frac_tc_100_cnt_t05 ,'Fraction : Sankey  Threshold 0.05 topic 100');
       break;
-    case "trade_vol_t=0.2":  
-      trade_vol_t_2('show_here','trade_vol_t=0.2');
+    case "sankey_frac_tc_100_cnt_t1":
+      draw_sankey('show_sankey', sankey_frac_tc_100_cnt_t1 ,'Fraction : Sankey  Threshold 0.1 topic 100');
       break;
-    case "trade_vol_t=0.1":  
-      trade_vol_t_1('show_here','trade_vol_t=0.1');
+    case "sankey_frac_tc_100_cnt_t2":
+      draw_sankey('show_sankey', sankey_frac_tc_100_cnt_t2 ,'Fraction : Sankey  Threshold 0.2 topic 100');
       break;
-    case "trade_vol_t=0.05":  
-      trade_vol_t_05('show_here','trade_vol_t=0.05');
+
+    case "sankey_count_tc_100_t05":
+      draw_sankey('show_sankey', sankey_count_tc_100_t05 ,'Count : Sankey  Threshold 0.05 topic 100');
       break;
-    case "frac_out_t=0.2":  
-      frac_out_t_2('show_here','frac_out_t=0.2');
+    case "sankey_count_tc_100_t1":
+      draw_sankey('show_sankey', sankey_count_tc_100_t1 ,'Count : Sankey  Threshold 0.1 topic 100');
       break;
-    case "frac_out_t=0.1":  
-      frac_out_t_1('show_here','frac_out_t=0.1');
+    case "sankey_count_tc_100_t2":
+      draw_sankey('show_sankey', sankey_count_tc_100_t2 ,'Count : Sankey  Threshold 0.2 topic 100');
       break;
-    case "frac_out_t=0.05":  
-      frac_out_t_05('show_here','frac_out_t=0.05');
-      break;
-    case "dc_v4_t=0.2":  
-      dc_v4_t_2('show_here','dc_v4_t=0.2');
-      break;
-    case "dc_v4_t=0.1":  
-    dc_v4_t_1('show_here','dc_v4_t=0.1');
-      break;
-    case "dc_v4_t=0.05":  
-    dc_v4_t_05('show_here','dc_v4_t=0.05');
-      break;
-    case "newSankey_trade_vol_t=0.2":  
-      newSankey_trade_vol('show_here','trade_vol_BoW_norm_small_100topics_t=0.2',0.2,data_tr_vol)
-      break;
-    case "newSankey_trade_vol_t=0.1":  
-      newSankey_trade_vol('show_here','trade_vol_BoW_norm_small_100topics_t=0.1',0.1,data_tr_vol)
-      break;
-    case "newSankey_trade_vol_t=0.05":  
-      newSankey_trade_vol('show_here','trade_vol_BoW_norm_small_100topics_t=0.05',0.05,data_tr_vol)
-      break;
-    case "newSankey_frac_out_t=0.2":  
-      newSankey_trade_vol('show_here','trade_SV_BoW_small_100topics_t=0.2',0.2,data_tr_sv)
-      break;
-    case "newSankey_frac_out_t=0.1":  
-      newSankey_trade_vol('show_here','trade_SV_BoW_small_100topics_t=0.1',0.1,data_tr_sv)
-      break;
-    case "newSankey_frac_out_t=0.05":  
-      newSankey_trade_vol('show_here','trade_SV_BoW_small_100topics_t=0.05',0.05,data_tr_sv)
-      break;
-    case "newSankey_dc_v4_t=0.2":  
-      newSankey_trade_vol('show_here','Dc_v4_100topics_t=0.2',0.2,data_dc)
-      break;
-    case "newSankey_dc_v4_t=0.1":  
-      newSankey_trade_vol('show_here','Dc_v4_100topics_t=0.1',0.1,data_dc)
-      break;
-    case "newSankey_dc_v4_t=0.05":  
-      newSankey_trade_vol('show_here','Dc_v4_100topics_t=0.05',0.05,data_dc)
-      break;
+
+
+
+      
+
+      
+
+   
     default:
       text = "Thanks";
   }
@@ -519,6 +545,7 @@
   }
 
   function change_header(header) {
+
     $('#content_header').text(header);
   }
 
