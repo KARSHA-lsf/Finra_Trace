@@ -68,7 +68,7 @@
     <div class="sidebar">
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -102,32 +102,10 @@
                   <p>pyLDAvis topic300</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a href="javascript:Menu_click('sankey_count_tc_100_t05');" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sankey Topic100 T=0.05</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="javascript:Menu_click('sankey_count_tc_100_t1');" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sankey Topic100 T=0.1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="javascript:Menu_click('sankey_count_tc_100_t2');" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sankey Topic100 T=0.2</p>
-                </a>
-              </li> -->
-
-
-              
-           
             </ul>
-          </li>
+          </li> -->
 
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -161,6 +139,34 @@
                   <p>pyLDAvis topic300</p>
                 </a>
               </li>
+              
+           
+            </ul>
+          </li> -->
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                2014
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">4</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="javascript:Menu_click('pyldvis_2014_count');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pyLDAvis Count : 100 topics</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:Menu_click('pyldvis_2014_factor');" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pyLDAvis Fraction : 100 topics</p>
+                </a>
+              </li>
+              
               <!-- <li class="nav-item">
                 <a href="javascript:Menu_click('sankey_frac_tc_100_cnt_t05');" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -432,7 +438,7 @@
 <script src="https://unpkg.com/d3-sankey@0"></script>
 
 <!-- experiment data loading pyLDAvis-->
-<script src="experiment_data/Count/trade_count_50topics.js"></script>
+<!-- <script src="experiment_data/Count/trade_count_50topics.js"></script>
 <script src="experiment_data/Count/trade_count_100topics.js"></script>
 <script src="experiment_data/Count/trade_count_200topics.js"></script>
 <script src="experiment_data/Count/trade_count_300topics.js"></script>
@@ -440,10 +446,10 @@
 <script src="experiment_data/Fraction/trade_frac_out_50topics.js"></script>
 <script src="experiment_data/Fraction/trade_frac_out_100topics.js"></script>
 <script src="experiment_data/Fraction/trade_frac_out_200topics.js"></script>
-<script src="experiment_data/Fraction/trade_frac_out_300topics.js"></script>
+<script src="experiment_data/Fraction/trade_frac_out_300topics.js"></script> -->
 
 <!--Sankey design-->
-<script src="js/sankey/sankey_design.js"></script>
+<!-- <script src="js/sankey/sankey_design.js"></script>
 
 <script src="experiment_data/Fraction/sankey_frac_tc_100_cnt_t05.js"></script>
 <script src="experiment_data/Fraction/sankey_frac_tc_100_cnt_t1.js"></script>
@@ -451,7 +457,7 @@
 
 <script src="experiment_data/Count/sankey_count_tc_100_cnt_t05.js"></script>
 <script src="experiment_data/Count/sankey_count_tc_100_cnt_t1.js"></script>
-<script src="experiment_data/Count/sankey_count_tc_100_cnt_t2.js"></script>
+<script src="experiment_data/Count/sankey_count_tc_100_cnt_t2.js"></script> -->
 
 
 
@@ -473,6 +479,9 @@
 <!-- <script src="data/min_data/trade_vol_BoW_norm_small_100topics_t=all.min.js"></script>
 <script src="data/min_data/Dc_v4_100topics_t=all.min.js"></script>
 <script src="data/min_data/trade_SV_BoW_small_100topics_t=all.min.js"></script> -->
+
+<script src="experiment_data/2014/trade_count_100topics.js"></script>
+<script src="experiment_data/2014/trade_frac_out_100topics.js"></script>
 
 <script>
 
@@ -530,7 +539,13 @@
     case "sankey_count_tc_100_t2":
       draw_sankey('show_sankey', sankey_count_tc_100_t2 ,'Count : Sankey  Threshold 0.2 topic 100');
       break;
-
+      
+    case "pyldvis_2014_count":
+      pyldvis_2014_counnt_t100('show_here','Count: pyLDAVis year:2014 topic:100')
+      break;
+    case "pyldvis_2014_factor":
+      pyldvis_2014_factor_t100('show_here','Fraction: pyLDAVis year:2014 topic:100')
+      break;
 
 
       
